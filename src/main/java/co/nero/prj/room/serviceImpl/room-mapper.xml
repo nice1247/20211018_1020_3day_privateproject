@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.nero.prj.room.service.RoomMapper">
+	<select id="roomSelectList"
+		resultType="co.nero.prj.room.service.RoomVO">
+		select * from htroom
+	</select>
+	<select id="roomSelect"
+		parameterType="co.nero.prj.room.service.RoomVO"
+		resultType="co.nero.prj.room.service.RoomVO">
+		select * from htroom where roomnum = #{roomnum}
+	</select>
+	<select id="roomNameSelect"
+		parameterType="co.nero.prj.room.service.RoomVO"
+		resultType="co.nero.prj.room.service.RoomVO">
+		select * from htroom where cliname = #{cliname}
+	</select>
+	<update id="roomInsert"
+		parameterType="co.nero.prj.personal.service.PersonalVO">
+		update htpersonal set addoffer = #{addoffer}
+		where name =
+		#{name}
+	</update>
+	<update id="roomUpdate"
+		parameterType="co.nero.prj.room.service.RoomVO">
+		update htroom set cliname = #{cliname}
+		where roomnum =
+		#{roomnum}
+	</update>
+	<update id="roomDelete"
+		parameterType="co.nero.prj.room.service.RoomVO">
+		update htroom set cliname = default
+		where cliname = #{cliname}
+	</update>
+
+</mapper>
